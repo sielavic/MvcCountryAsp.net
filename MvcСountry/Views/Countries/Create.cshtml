@@ -1,0 +1,81 @@
+﻿@*@model  ViewModel*@
+@model MvcCountry.Models.Country
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Country</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+
+
+                @*<label asp-for="Name" class="control-label"></label>*@
+                @*<input asp-for="Name" class="form-control" />*@
+                @*<select class="form-control" id="Country">
+                            @foreach (string Name in ViewBag.Country)
+                    {
+                                <option value="Name">Name</option>
+                    }*@
+
+
+                @Html.DropDownList("Name")
+                @*@Html.DropDownList("capital")*@
+                @*@Html.DropDownList("region")*@
+
+                @*@Html.DropdownListFor("Name", new { @id = "Capital", @size = 10 })*@
+
+
+                @*</select>*@
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+
+            @*<div class="form-group">*@
+
+            @*<label asp-for="CapitalId" class="control-label"></label>*@
+
+            @*@Html.DropDownList("Capital")*@
+            @*<input asp-for="CapitalId" class="form-control" />
+                <span asp-validation-for="CapitalId" class="text-danger"></span>*@
+
+            @*<div class="col-md-12 border rounded">
+                    @Html.Label((string)ViewBag.Capital)<br>
+                </div>*@
+
+
+
+            <!--</div>-->
+            <!--<div class="form-group">
+                <label asp-for="Population" class="control-label"></label>
+                <input asp-for="Population" class="form-control" />
+                <span asp-validation-for="Population" class="text-danger"></span>
+            </div>-->
+            @*<div class="form-group">
+                    <label asp-for="Region" class="control-label"></label>
+                    <input asp-for="Region" class="form-control" />
+                    <span asp-validation-for="Region" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
