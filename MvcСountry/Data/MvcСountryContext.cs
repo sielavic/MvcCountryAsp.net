@@ -16,7 +16,6 @@ namespace MvcСountry.Data
         }
         
         public DbSet<Country> Country { get; set; }
-        //public DbSet<ViewModel> ViewModel { get; set; }
         public DbSet<City> City { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

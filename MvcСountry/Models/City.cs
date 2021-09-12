@@ -10,19 +10,16 @@ using System.Threading.Tasks;
 
 namespace MvcСountry.Models
 {
-    
     public class City
     {
-        
-        //public City() => Country = new Country();
-
-
+/**
+ * Класс модели города
+ * Class City
+ * 
+ */
         public Country Country { get; set; }
-        //public City() => Country = new Country ();
-        //public int CountryId { get; set; }
         [Key]
         public int CityId { get; set; }
-       
         public string capital { get; set; }
         
     }

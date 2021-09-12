@@ -8,6 +8,11 @@ namespace MvcСountry.Models
 {
     public class Regions
     {
+        /**
+        * Класс модели региона
+        * Class Regions
+        * 
+        */
         public int Id { get; set; }
         public string Region { get; set; }
         public Country Country { get; set; }

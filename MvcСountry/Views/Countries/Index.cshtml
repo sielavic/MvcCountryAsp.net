@@ -1,23 +1,24 @@
 ﻿@model IEnumerable<MvcCountry.Models.Country>
 
 
-
-
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Added countries</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<form asp-controller="Countries" asp-action="Index">
+@*для данной формы используется экшн Create*@
+<form method="get" asp-controller="Countries" asp-action="Create"> 
     <p>
         Name of the country: <input type="text" name="SearchString" />
         <input type="submit" value="Search" />
     </p>
 </form>
+@Html.Raw(TempData["msg"])
+
+
+
+
 <table class="table">
     <thead>
         <tr>
@@ -43,32 +44,41 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Alpha2Code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.capital)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Area)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Population)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Region)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CountryId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CountryId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CountryId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alpha2Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.capital)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Area)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Population)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Region)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CountryId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CountryId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CountryId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
+
